@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Poppins:wght@700&display=swap');
+* {
+        padding: 0;
+        margin: 0;  
+        box-sizing: border-box;
+        font-family: 'Poppins';
+        text-decoration: none;
+        list-style: none;
+}
+ body {
+        background: #6e0f0f;
+        display: flex;
+        flex-direction: column;
+}
+.um{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+.fundo{
+    width: 100%;
+    height: 100vh;
+    background-image: url("imagens/fundohome.png");
+    position: relative;
+    z-index: -1;
+}
+header {
+    font-family: 'Poppins';
+    background: #5b0c0c;
+    width: 80%;
+    height: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 50px;
+    border-radius: 0 0 10px 10px;
+    margin: 0 auto;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.logo {
+    display: flex;
+    width: 150px;
+}
+
+.logo img {
+    width: 100%;
+}
+
+header .logo {
+    font-size: 30px;
+    text-transform: uppercase;
+}
+
+nav .logo {
+    display: none;
+}
+
+nav ul {
+    display: flex;
+}
+
+nav ul li a {
+    color: #000000;
+    background-color:#f7b6b9 ;
+    display: block;
+    margin: 0 2px;
+    font-weight: 600;
+    padding: 8px 18px;
+    transition: 0.2s;
+    border-radius: 30px;
+}
+nav ul li a:hover {
+    background: #f7b6b9;
+    color: #000000;
+}
+
+nav ul li a.ativo {
+    background: #ffffff;
+    color: #000000;
+}
+.container{
+    width: 100%;
+    height: 85%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.titulo{
+    width: 50%;
+    font-size: 50px;
+    font-family: "League Spartan";
+    color: #f7b6b9;
+    display: flex;
+    align-items: last baseline;
+    flex-direction: column;
+}
+.texto1{
+    font-size: 25px;
+    font-family: "League Spartan";
+    color: #f7b6b9;
+    width: 100%;
+    text-align: justify;
+}
+.texto2 img{
+    width: 100%;
+    height: auto;
+    font-size: 30px;
+}
