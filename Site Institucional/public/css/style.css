@@ -8,7 +8,7 @@
         list-style: none;
 }
  body {
-        background: #ee4242;
+        background: #000000;
         display: flex;
         flex-direction: column;
 }
@@ -22,26 +22,25 @@
     height: 100vh;
     background-image: url("imagens/fundohome.png");
     position: relative;
-    z-index: -1;
+    background-attachment: fixed;
 }
 header {
     font-family: 'Poppins';
-    background: #ee4242;
-    width: 80%;
-    height: 15%;
+    background: #0f1923;
+    width: 100%;
+    height: 12%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 50px;
-    border-radius: 0 0 10px 10px;
+    padding: 0 60px;
     margin: 0 auto;
-    z-index: 1;
     cursor: pointer;
 }
 
 .logo {
     display: flex;
-    width: 150px;
+    width: 120px;
+
 }
 
 .logo img {
@@ -62,8 +61,7 @@ nav ul {
 }
 
 nav ul li a {
-    color: #fff;
-    background-color:#fd7b7b ;
+    color: #ffffff;
     display: block;
     margin: 0 2px;
     font-weight: 600;
@@ -71,21 +69,20 @@ nav ul li a {
     transition: 0.2s;
     border-radius: 30px;
 }
-nav ul li a:hover {
-    background: #fd7b7b;
+/* nav ul li a:hover {
+    background: #ffffff;
     color: #fff;
-}
+} */
 
 nav ul li a.ativo {
-    background: #ffffff;
-    color: #000000;
+    color: #ffffff;
 }
 .container{
     width: 100%;
     height: 85%;
     display: flex;
-    justify-content: space-around;
     align-items: center;
+    margin-left: 250px ;
 }
 
 .titulo{
@@ -96,22 +93,162 @@ nav ul li a.ativo {
     display: flex;
     align-items: last baseline;
     flex-direction: column;
+    justify-content: center;
+    gap: 20px;
 }
 .texto1{
     font-size: 25px;
     font-family: "League Spartan";
     color: #fff;
-    width: 87%;
+    width: 100%;
     text-align: justify;
-}
-.texto2{
-    align-items: center;
-}
+}   
+/* From Uiverse.io by mrhyddenn */ 
+.button {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
+    background: none;
+    color: #0f1923;
+    cursor: pointer;
+    position: relative;
+    padding: 8px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 14px;
+    transition: all .15s ease;
+  }
+  
+  .button::before,
+  .button::after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    left: 0;
+    height: calc(50% - 5px);
+    border: 1px solid #7D8082;
+    transition: all .15s ease;
+  }
+  
+  .button::before {
+    top: 0;
+    border-bottom-width: 0;
+  }
+  
+  .button::after {
+    bottom: 0;
+    border-top-width: 0;
+  }
+  
+  .button:active,
+  .button:focus {
+    outline: none;
+  }
+  
+  .button:active::before,
+  .button:active::after {
+    right: 3px;
+    left: 3px;
+  }
+  
+  .button:active::before {
+    top: 3px;
+  }
+  
+  .button:active::after {
+    bottom: 3px;
+  }
+  
+  .button_lg {
+    position: relative;
+    display: block;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #0f1923;
+    overflow: hidden;
+    box-shadow: inset 0px 0px 0px 1px transparent;
+  }
+  
+  .button_lg::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 2px;
+    background-color: #0f1923;
+  }
+  
+  .button_lg::after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 4px;
+    height: 4px;
+    background-color: #0f1923;
+    transition: all .2s ease;
+  }
+  
+  .button_sl {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: -1px;
+    left: -8px;
+    width: 0;
+    background-color: #ba0000;
+    transform: skew(-15deg);
+    transition: all .2s ease;
+  }
+  
+  .button_text {
+    position: relative;
+  }
+  
+  .button:hover {
+    color: #0f1923;
+  }
+  
+  .button:hover .button_sl {
+    width: calc(100% + 15px);
+  }
+  
+  .button:hover .button_lg::after {
+    background-color: #fff;
+  }
 
-.texto2 img{
-    width: 700px;
-}
+  .espaco_card{
+    width: 100%;
+    height: 250px;
+    position: absolute;
+    z-index: 100;
+    bottom: -100px;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+  }
 
+  .card_um{
+    width: 350px;
+    height: 100%;
+    background: #ba0000;
+    border-radius: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .sec{
+    background: #ffffff;
+  }
+
+  .th{
+    background: #0f1923;
+  }
 /*CSS do Sobre Nos*/
 .dois {
     width: 100%;
@@ -122,7 +259,7 @@ nav ul li a.ativo {
 .fundo_sobre_nos {
     width: 100%;
     height: 100vh;
-    background-image: url("imagens/fundosobre.png");
+    background-color: #ffffff;
     position: relative;
     z-index: -1;
 }
@@ -139,7 +276,7 @@ nav ul li a.ativo {
     width: 50%;
     font-size: 50px;
     font-family: "League Spartan";
-    color: #fff;
+    color: #000000;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -149,7 +286,7 @@ nav ul li a.ativo {
     width: 100%;
     font-size: 25px;
     font-family: "League Spartan";
-    color: #fff;
+    color: #000000;
     width: 87%;
     text-align: justify;
 }
@@ -169,7 +306,7 @@ nav ul li a.ativo {
 .fundocontato {
     width: 100%;
     height: 100vh;
-    background-image: url("imagens/fundocontato.png");
+    background-color: #d4d6d6;
     position: relative;
     z-index: -1;
 }
@@ -184,7 +321,7 @@ nav ul li a.ativo {
     width: 50%;
     font-size: 35px;
     font-family: "League Spartan";
-    color: #fff;
+    color: #000000;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -194,7 +331,7 @@ nav ul li a.ativo {
     width: 100%;
     font-size: 25px;
     font-family: "League Spartan";
-    color: #fff;
+    color: #000000;
     width: 87%;
     text-align: justify; 
 }
