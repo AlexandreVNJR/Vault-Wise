@@ -1,4 +1,4 @@
--- DROP DATABASE IF EXISTS vaultwise;
+DROP DATABASE IF EXISTS vaultwise;
 CREATE DATABASE vaultwise;
 USE vaultwise;
 
@@ -29,7 +29,7 @@ fk_empresa INT,
 );
 
 CREATE TABLE equipamento(
-id_equipamento INT,
+id_equipamento INT AUTO_INCREMENT,
 sistema_operacional VARCHAR(45),
 fk_empresa INT,
 
@@ -38,8 +38,9 @@ fk_empresa INT,
 );
 
 CREATE TABLE dado(
-id_dado INT,
-processamento VARCHAR(45),
+id_dado INT AUTO_INCREMENT,
+cpu_percent VARCHAR(45),
+cpu_freq VARCHAR(45),
 memoria VARCHAR(45),
 disco VARCHAR(45),
 dt_hora DATETIME DEFAULT CURRENT_TIMESTAMP,
@@ -48,5 +49,13 @@ fk_empresa INT,
 
     FOREIGN KEY (fk_equipamento) REFERENCES equipamento (id_equipamento),
     FOREIGN KEY (fk_empresa) REFERENCES empresa (id_empresa),
-    PRIMARY KEY (id_dado, id_equipamento, fk_empresa)
+    PRIMARY KEY (id_dado, fk_equipamento, fk_empresa)
 );
+
+INSERT INTO empresa VALUES
+(default, 12345678910111, 99999999, "Empresa XPTO", 999999999, "xpto@gmail.com", "999", null);
+
+INSERT INTO equipamento VALUES
+(default, "Windows", 1);
+
+SELECT * FROM dado;
