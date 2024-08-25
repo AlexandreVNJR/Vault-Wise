@@ -40,7 +40,6 @@ fk_empresa INT,
 CREATE TABLE dado(
 id_dado INT AUTO_INCREMENT,
 cpu_percent VARCHAR(45),
-cpu_freq VARCHAR(45),
 memoria VARCHAR(45),
 disco VARCHAR(45),
 dt_hora DATETIME DEFAULT CURRENT_TIMESTAMP,
