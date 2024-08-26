@@ -327,6 +327,8 @@ nav ul li a.ativo {
     width: 100%;
     height: 100vh;
     overflow: hidden;
+    position: relative;
+    z-index: 1000;
 }
 
 .fundoequipe {
@@ -373,7 +375,7 @@ nav ul li a.ativo {
   display: flex;
   place-items: center;
   margin-inline: 1.5rem;
-  padding-block: 5rem;
+  padding-block: 3rem;
 }
 
 .cardcontainer2{
