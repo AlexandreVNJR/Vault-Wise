@@ -30,11 +30,14 @@ fk_empresa INT,
 
 CREATE TABLE equipamento(
 id_equipamento INT AUTO_INCREMENT,
+nome_equipamento VARCHAR(45),
 sistema_operacional VARCHAR(45),
+total_disco VARCHAR(45),
+total_memoria VARCHAR(45),
 fk_empresa INT,
 
     FOREIGN KEY (fk_empresa) REFERENCES empresa (id_empresa),
-    PRIMARY KEY (id_equipamento,fk_empresa)
+    PRIMARY KEY (id_equipamento)
 );
 
 CREATE TABLE dado(
@@ -42,6 +45,7 @@ id_dado INT AUTO_INCREMENT,
 cpu_percent VARCHAR(45),
 memoria VARCHAR(45),
 disco VARCHAR(45),
+estado VARCHAR(45),
 dt_hora DATETIME DEFAULT CURRENT_TIMESTAMP,
 fk_equipamento INT,
 fk_empresa INT,
@@ -55,6 +59,9 @@ INSERT INTO empresa VALUES
 (default, 12345678910111, 99999999, "Empresa XPTO", 999999999, "xpto@gmail.com", "999", null);
 
 INSERT INTO equipamento VALUES
-(default, "Windows", 1);
+(default, 'Teste', "Windows", "1TB", "8GB",1);
 
 SELECT * FROM dado;
+SELECT * FROM equipamento;
+
+SELECT d.cpu_percent, d.memoria, d.disco, d.dt_hora,e.nome_equipamento FROM dado AS d JOIN equipamento AS e ON fk_equipamento = id_equipamento;

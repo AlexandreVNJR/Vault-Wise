@@ -1,30 +1,35 @@
 import psutil
 import time
 from socket import gethostname
-
-nomeMaquina = gethostname()
-
-intervalo = 2 #setando o intervalo da captura
-
+import platform
 import mysql.connector
 
+nomeMaquina = gethostname()
+sistemaOperacional = platform.system()
+intervalo = 2 #setando o intervalo da captura
+
+#Conexão com o banco
 mydb = mysql.connector.connect(
     #user='VaultWise', 
     #password='Senha123', 
     #host='10.18.32.222',
-    user = '',
-    password='',
+    user = 'root',
+    password='Ubatuba0815',
     host='localhost',
     database='vaultwise',
     port='3306'
 )
-
 cursor = mydb.cursor()
 
 while True:
+    #Variáveis de captura dos dados
     porcent_cpu = psutil.cpu_percent()
     memoria = psutil.virtual_memory()
-    disco = psutil.disk_usage('/')
+    if(sistemaOperacional == "Windows"):
+        disco = psutil.disk_usage('C:\\')
+    else:
+        disco = psutil.disk_usage('/')
+    
 
     print(""" 
     DADOS ARMAZENADOS
@@ -39,30 +44,45 @@ while True:
           
     Disco Rígido (total = {:.2f} GB): 
     Porcentagem de uso do disco: {:.1f}%
+          
+    Pressione Ctrl+C para encerrar a captura
     """.format(intervalo, porcent_cpu,  memoria.total/pow(10, 9), memoria.percent, disco.total/pow(10, 9), disco.percent))
+
+    #Tempo de captura de dados
     time.sleep(intervalo)
 
+    #Select para verificação da inserção do equipamento
     instrucaoVerEquipamento = "SELECT * FROM equipamento WHERE nome_equipamento = %s" 
     cursor.execute(instrucaoVerEquipamento, ([nomeMaquina]))
 
-    for row in cursor: #Função para utilizar o resultado do cursor, se não da erro de unread result 
+    #Função para utilizar o resultado do cursor, se não da erro de unread result
+    for row in cursor:  
         print(row)
 
-    if(cursor.rowcount < 1): #Função para verificar (apartir do select de cima) se já existe um equipamento com esse nome para fazer inserção automática dele
-        instrucaoEquipamento= "INSERT INTO equipamento VALUES (default, %s, 'Windows', '%sGB', '%sGB', 1);"
-        valuesEquipamento = (nomeMaquina, round(disco.total/pow(10, 9), 0), round(memoria.total/pow(10, 9),0))
+    #Função para verificar (apartir do select de cima) se já existe um equipamento com esse nome para fazer inserção automática dele
+    if cursor.rowcount < 1: 
+        instrucaoEquipamento= "INSERT INTO equipamento VALUES (default, %s, %s, '%s GB', '%s GB', null);"
+        valuesEquipamento = (nomeMaquina, sistemaOperacional,round(disco.total/pow(10, 9), 0), round(memoria.total/pow(10, 9),0))
         cursor.execute(instrucaoEquipamento, valuesEquipamento) 
         mydb.commit()
 
-    if(porcent_cpu > 80 or memoria.percent > 70 ): #Função para enviar os dados capturados direto para uma tabela de alerta 
-        instrucao = "INSERT INTO alerta VALUES (default, %s, %s, %s, default, 1, 1);"
-        values = (porcent_cpu, memoria.percent, disco.percent)
+    instrucaoID = "SELECT id_equipamento FROM equipamento WHERE nome_equipamento LIKE %s"
+    valuesID = ([nomeMaquina])
+    cursor.execute(instrucaoID, valuesID)
+    idEquipamento_tupla = cursor.fetchone()
+
+    #Converção de tupla (o resultado) para string e depois inteiro
+    idEquipamento = int(''.join(map(str, idEquipamento_tupla)))
+
+    #Função para enviar os dados capturados com a informação de que estão em alerta
+    if porcent_cpu > 80 or memoria.percent > 80:  
+        instrucao = "INSERT INTO dado VALUES (default, %s, %s, %s, 'Alerta',default, %s, 1);"
+        values = (porcent_cpu, memoria.percent, disco.percent, idEquipamento)
         cursor.execute(instrucao, values)
-
-    instrucao = "INSERT INTO dado VALUES (default, %s, %s, %s, default, 1, 1);"
-    values = (porcent_cpu, memoria.percent, disco.percent)
-
-    cursor.execute(instrucao, values)
+    else:
+        instrucao = "INSERT INTO dado VALUES (default, %s, %s, %s, 'Seguro',default, %s, 1);"
+        values = (porcent_cpu, memoria.percent, disco.percent, idEquipamento)
+        cursor.execute(instrucao, values)
 
     mydb.commit()
 
