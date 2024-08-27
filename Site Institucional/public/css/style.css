@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Poppins:wght@700&display=swap');
 * {
-        padding: 0;
-        margin: 0;  
-        box-sizing: border-box;
-        text-decoration: none;
-        list-style: none;
+  padding: 0;
+  margin: 0;  
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
 }
  body {
         background: #000000;
@@ -103,7 +103,7 @@ nav ul li a.ativo {
     width: 100%;
     text-align: justify;
 }   
-/* From Uiverse.io by mrhyddenn */ 
+
 .button {
     -moz-appearance: none;
     -webkit-appearance: none;
@@ -342,6 +342,7 @@ nav ul li a.ativo {
     width: 100%;
     height: 85%;
     display: flex;
+    transform: scale(0.6);
     flex-direction: column;
     align-items: center;
     font-family: "League Spartan";
@@ -359,6 +360,7 @@ nav ul li a.ativo {
 }
 
 .texto_equipe {
+  margin-top: 25px;
   width: 100%;
   font-size: 25px;
   font-family: "League Spartan";
@@ -367,20 +369,29 @@ nav ul li a.ativo {
   text-align: justify;
 }
 
-.divisaocards{
-  display: flex;
-}
-
 .containercard{
   display: flex;
+  justify-content: center;
   place-items: center;
   margin-inline: 1.5rem;
-  padding-block: 3rem;
+  padding-block: 2rem;
+}
+
+.alinhamentocardequipe{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .cardcontainer2{
   display: grid;
   row-gap: 3.5rem;
+}
+
+.containercard3{
+  display: flex;
+  flex-direction: column;
 }
 
 .cardarticle{
@@ -447,6 +458,102 @@ nav ul li a.ativo {
 
 .cardarticle:not(:hover) .carddados{
   animation: remove-data 1s forwards;
+}
+
+.quatro{
+  width: 100%;
+  height: 55VH;
+  overflow: hidden;
+}
+
+.fundovalores{
+  width: 100%;
+  height: 55vh;
+  background: #fff;
+}
+
+.containerval{
+  flex-direction: row;
+  background:#fff;
+  padding:15px 9%;
+  padding-bottom: 100px;
+  font-family: "League Spartan";
+}
+
+.titulo_valores{
+  width: 100%;
+  margin-top: 35px;
+    font-size: 35px;
+    font-family: "League Spartan";
+    color: #0f1923;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.containerval .heading{
+  text-align: center;
+  padding-bottom: 15px;
+  color:#fff;
+  text-shadow: 0 5px 10px rgba(0,0,0,.2);
+  font-size: 50px;
+}
+
+.containerval .box-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap:15px;
+}
+
+.containerval .box-container .box{
+  box-shadow: 0 5px 10px rgba(0,0,0,.2);
+  border-radius: 5px;
+  background: #fff;
+  text-align: center;
+  padding:30px 20px;
+}
+
+.containerval .box-container .box img{
+  height: 80px;
+}
+
+.containerval .box-container .box h3{
+  color:#444;
+  font-size: 22px;
+  padding:10px 0;
+}
+
+.containerval .box-container .box p{
+  color:#777;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.containerval .box-container .box .btn{
+  margin-top: 10px;
+  display: inline-block;
+  background:#333;
+  color:#fff;
+  font-size: 17px;
+  border-radius: 5px;
+  padding: 8px 25px;
+}
+
+.containerval .box-container .box .btn:hover{
+  letter-spacing: 1px;
+}
+
+.containerval .box-container .box:hover{
+  box-shadow: 0 10px 15px rgba(0,0,0,.3);
+  transform: scale(1.03);
+}
+
+
+
+@media (max-width:768px){
+  .containerval{
+      padding:20px;
+  }
 }
 
 @keyframes show-data{
