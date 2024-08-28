@@ -54,93 +54,65 @@
     // let listaEmpresasCadastradas = [];
   
     function cadastrar() {
-      // aguardar();
-  
-      //Recupere o valor da nova input pelo nome do id
-      // Agora vá para o método fetch logo abaixo
-      var razaoSocial = input_razaosocial.value;
-      var cnpj = input_cnpj.value;
-      var cep = input_cep.value;
-      var telefone = input_telefone.value;
-      var email = input_email.value;
-      var senha = input_senha.value;
-      // Verificando se há algum campo em branco
-      if (
+  var razaoSocial = document.getElementById(".input_razaosocial");
+  var cnpj = document.getElementById(".input_cnpj");
+  var cep = document.getElementById(".input_cep");
+  var telefone = document.getElementById(".input_telefone");
+  var email = document.getElementById(".input_email");
+  var senha = document.getElementById(".input_senha");
 
-        razaoSocial == "" ||
-        cnpj == "" ||
-        cep == "" ||
-        telefone == "" ||
-        email == "" ||
-        senha == "" 
-      ) {
+  if (
+  razaoSocial === "" ||
+  cnpj === "" ||
+  cep === "" ||
+  telefone === "" ||
+  email === "" ||
+  senha === ""
+) {
+  cardErro.style.display = "block";
+  mensagem_erro.innerHTML = "Todos os campos são obrigatórios.";
+  return false;
+}
+
+  // Enviando o valor da nova input
+  fetch("/empresas/cadastrar", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      razaoSocialServer: razaoSocial,
+      cnpjServer: cnpj,
+      cepServer: cep,
+      telefoneServer: telefone,
+      emailServer: email,
+      senhaServer: senha,
+    }),
+  })
+    .then(function (resposta) {
+      console.log("resposta: ", resposta);
+
+      if (resposta.ok) {
         cardErro.style.display = "block";
         mensagem_erro.innerHTML =
-          "(Mensagem de erro para todos os campos em branco)";
-  
-        finalizarAguardar();
-        return false;
-      } else {
-        setInterval(sumirMensagem, 5000);
-      }
-  
-      // Verificando se o código de ativação é de alguma empresa cadastrada
-    //   for (let i = 0; i < listaEmpresasCadastradas.length; i++) {
-    //     if (listaEmpresasCadastradas[i].codigo_ativacao == codigoVar) {
-    //       idEmpresaVincular = listaEmpresasCadastradas[i].id
-    //       console.log("Código de ativação válido.");
-    //       break;
-    //     } else {
-    //       cardErro.style.display = "block";
-    //       mensagem_erro.innerHTML = "(Mensagem de erro para código inválido)";
-    //       finalizarAguardar();
-    //     }
-    //   }
-  
-      // Enviando o valor da nova input
-      fetch("/empresas/cadastrar", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          // crie um atributo que recebe o valor recuperado aqui
-          // Agora vá para o arquivo routes/usuario.js
-            razaoSocialServer: razaoSocialVar,
-            cnpjServer: cnpjVar,
-            cepServer: cepVar,
-            telefoneServer: telefoneVar,
-            emailServer: emailVar,
-            senhaServer: senhaVar,
+          "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
 
-        }),
-      })
-        .then(function (resposta) {
-          console.log("resposta: ", resposta);
-  
-          if (resposta.ok) {
-            cardErro.style.display = "block";
-  
-            mensagem_erro.innerHTML =
-              "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-  
-            setTimeout(() => {
-              window.location = "login.html";
-            }, "2000");
-  
-            limparFormulario();
-            finalizarAguardar();
-          } else {
-            throw "Houve um erro ao tentar realizar o cadastro!";
-          }
-        })
-        .catch(function (resposta) {
-          console.log(`#ERRO: ${resposta}`);
-          finalizarAguardar();
-        });
-  
-      return false;
-    }
+        setTimeout(() => {
+          window.location = "login.html";
+        }, "2000");
+
+        limparFormulario();
+      } else {
+        throw "Houve um erro ao tentar realizar o cadastro!";
+      }
+    })
+    .catch(function (resposta) {
+      console.log(`#ERRO: ${resposta}`);
+    });
+
+  return false;
+}
+
   
     // Listando empresas cadastradas 
     // function listar() {
