@@ -54,10 +54,6 @@ app.listen(PORTA_APP, function () {
    \$$ $$  | $$  | $$| $$__/ $$| $$_____ | $$         | $$$$  \$$$$ _| $$_ |  \__| $$| $$_____ 
     \$$$   | $$  | $$ \$$    $$| $$     \| $$         | $$$    \$$$|   $$ \ \$$    $$| $$     \
      \$     \$$   \$$  \$$$$$$  \$$$$$$$$ \$$          \$$      \$$ \$$$$$$  \$$$$$$  \$$$$$$$$
-                                                                                               
-                                                                                               
-                                                                                               
-  
     \n\n\n                                                                                                 
     Servidor do seu site já está rodando! Acesse o caminho a seguir para visualizar .: http://${HOST_APP}:${PORTA_APP} :. \n\n
     Você está rodando sua aplicação em ambiente de .:${process.env.AMBIENTE_PROCESSO}:. \n\n
