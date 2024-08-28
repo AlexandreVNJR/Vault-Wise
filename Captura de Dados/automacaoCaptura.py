@@ -71,8 +71,8 @@ while True:
     cursor.execute(instrucaoID, valuesID)
     idEquipamento_tupla = cursor.fetchone()
 
-    #Converção de tupla (o resultado) para string e depois inteiro
-    idEquipamento = int(''.join(map(str, idEquipamento_tupla)))
+    #Seleção do id selecionado
+    idEquipamento = idEquipamento_tupla[0]
 
     #Função para enviar os dados capturados com a informação de que estão em alerta
     if porcent_cpu > 80 or memoria.percent > 80:  
