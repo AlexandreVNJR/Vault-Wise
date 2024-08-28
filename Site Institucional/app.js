@@ -15,12 +15,17 @@ var HOST_APP = process.env.APP_HOST;
 
 var app = express();
 
-var indexRouter = require("./src/routes/index");
-var usuarioRouter = require("./src/routes/usuarios");
-var avisosRouter = require("./src/routes/avisos");
-var medidasRouter = require("./src/routes/medidas");
-var aquariosRouter = require("./src/routes/aquarios");
+// var indexRouter = require("./src/routes/index");
+// var avisosRouter = require("./src/routes/avisos");
+// var medidasRouter = require("./src/routes/medidas");
+// var aquariosRouter = require("./src/routes/aquarios");
+
+// Rota de cadastro da Empresa
 var empresasRouter = require("./src/routes/empresas");
+
+// Rota de cadastro de funcionario
+var usuariosRouter = require("./src/routes/usuarios");
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -28,22 +33,31 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use(cors());
 
-app.use("/", indexRouter);
-app.use("/usuarios", usuarioRouter);
-app.use("/avisos", avisosRouter);
-app.use("/medidas", medidasRouter);
-app.use("/aquarios", aquariosRouter);
+// app.use("/", indexRouter);
+
+// app.use("/avisos", avisosRouter);
+// app.use("/medidas", medidasRouter);
+// app.use("/aquarios", aquariosRouter);
+
+// Uso da rota 
+app.use("/usuarios", usuariosRouter);
 app.use("/empresas", empresasRouter);
 
 app.listen(PORTA_APP, function () {
     console.log(`
-    ##   ##  ######   #####             ####       ##     ######     ##              ##  ##    ####    ######  
-    ##   ##  ##       ##  ##            ## ##     ####      ##      ####             ##  ##     ##         ##  
-    ##   ##  ##       ##  ##            ##  ##   ##  ##     ##     ##  ##            ##  ##     ##        ##   
-    ## # ##  ####     #####    ######   ##  ##   ######     ##     ######   ######   ##  ##     ##       ##    
-    #######  ##       ##  ##            ##  ##   ##  ##     ##     ##  ##            ##  ##     ##      ##     
-    ### ###  ##       ##  ##            ## ##    ##  ##     ##     ##  ##             ####      ##     ##      
-    ##   ##  ######   #####             ####     ##  ##     ##     ##  ##              ##      ####    ######  
+ __     __   ______   __    __  __     ________        __       __  ______   ______   ________ 
+|  \   |  \ /      \ |  \  |  \|  \   |        \      |  \  _  |  \|      \ /      \ |        \
+| $$   | $$|  $$$$$$\| $$  | $$| $$    \$$$$$$$$      | $$ / \ | $$ \$$$$$$|  $$$$$$\| $$$$$$$$
+| $$   | $$| $$__| $$| $$  | $$| $$      | $$         | $$/  $\| $$  | $$  | $$___\$$| $$__    
+ \$$\ /  $$| $$    $$| $$  | $$| $$      | $$         | $$  $$$\ $$  | $$   \$$    \ | $$  \   
+  \$$\  $$ | $$$$$$$$| $$  | $$| $$      | $$         | $$ $$\$$\$$  | $$   _\$$$$$$\| $$$$$   
+   \$$ $$  | $$  | $$| $$__/ $$| $$_____ | $$         | $$$$  \$$$$ _| $$_ |  \__| $$| $$_____ 
+    \$$$   | $$  | $$ \$$    $$| $$     \| $$         | $$$    \$$$|   $$ \ \$$    $$| $$     \
+     \$     \$$   \$$  \$$$$$$  \$$$$$$$$ \$$          \$$      \$$ \$$$$$$  \$$$$$$  \$$$$$$$$
+                                                                                               
+                                                                                               
+                                                                                               
+  
     \n\n\n                                                                                                 
     Servidor do seu site já está rodando! Acesse o caminho a seguir para visualizar .: http://${HOST_APP}:${PORTA_APP} :. \n\n
     Você está rodando sua aplicação em ambiente de .:${process.env.AMBIENTE_PROCESSO}:. \n\n

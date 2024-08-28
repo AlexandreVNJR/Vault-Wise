@@ -1,62 +1,67 @@
--- Arquivo de apoio, caso você queira criar tabelas como as aqui criadas para a API funcionar.
--- Você precisa executar os comandos no banco de dados para criar as tabelas,
--- ter este arquivo aqui não significa que a tabela em seu BD estará como abaixo!
+DROP DATABASE IF EXISTS vaultwise;
+CREATE DATABASE vaultwise;
+USE vaultwise;
 
-/*
-comandos para mysql server
-*/
 
-CREATE DATABASE aquatech;
-
-USE aquatech;
-
-CREATE TABLE empresa (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	razao_social VARCHAR(50),
-	cnpj CHAR(14),
-	codigo_ativacao VARCHAR(50)
+CREATE TABLE empresa(
+id_empresa INT PRIMARY KEY AUTO_INCREMENT,
+cnpj CHAR(14) UNIQUE,
+cep CHAR(8),
+razao_social VARCHAR(45),
+telefone CHAR(9) UNIQUE,
+email VARCHAR(45) UNIQUE,
+numero VARCHAR(45),
+complemento VARCHAR(45)
 );
 
-CREATE TABLE usuario (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	nome VARCHAR(50),
-	email VARCHAR(50),
-	senha VARCHAR(50),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
+CREATE TABLE usuario(
+id_usuario INT AUTO_INCREMENT,
+cpf CHAR(11) UNIQUE,
+nome VARCHAR(45),
+email VARCHAR(45) UNIQUE,
+telefone CHAR(9) UNIQUE,
+cargo VARCHAR(45),
+senha VARCHAR(45),
+fk_empresa INT,
+
+    FOREIGN KEY (fk_empresa) REFERENCES empresa (id_empresa),
+    PRIMARY KEY (id_usuario,fk_empresa)
 );
 
-CREATE TABLE aviso (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	titulo VARCHAR(100),
-	descricao VARCHAR(150),
-	fk_usuario INT,
-	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
+CREATE TABLE equipamento(
+id_equipamento INT AUTO_INCREMENT,
+nome_equipamento VARCHAR(45),
+sistema_operacional VARCHAR(45),
+total_disco VARCHAR(45),
+total_memoria VARCHAR(45),
+fk_empresa INT,
+
+    FOREIGN KEY (fk_empresa) REFERENCES empresa (id_empresa),
+    PRIMARY KEY (id_equipamento)
 );
 
-create table aquario (
-/* em nossa regra de negócio, um aquario tem apenas um sensor */
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	descricao VARCHAR(300),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
+CREATE TABLE dado(
+id_dado INT AUTO_INCREMENT,
+cpu_percent VARCHAR(45),
+memoria VARCHAR(45),
+disco VARCHAR(45),
+estado VARCHAR(45),
+dt_hora DATETIME DEFAULT CURRENT_TIMESTAMP,
+fk_equipamento INT,
+fk_empresa INT,
+
+    FOREIGN KEY (fk_equipamento) REFERENCES equipamento (id_equipamento),
+    FOREIGN KEY (fk_empresa) REFERENCES empresa (id_empresa),
+    PRIMARY KEY (id_dado, fk_equipamento, fk_empresa)
 );
 
-/* esta tabela deve estar de acordo com o que está em INSERT de sua API do arduino - dat-acqu-ino */
+INSERT INTO empresa VALUES
+(default, 12345678910111, 99999999, "Empresa XPTO", 999999999, "xpto@gmail.com", "999", null);
 
-create table medida (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	dht11_umidade DECIMAL,
-	dht11_temperatura DECIMAL,
-	luminosidade DECIMAL,
-	lm35_temperatura DECIMAL,
-	chave TINYINT,
-	momento DATETIME,
-	fk_aquario INT,
-	FOREIGN KEY (fk_aquario) REFERENCES aquario(id)
-);
+INSERT INTO equipamento VALUES
+(default, 'Teste', "Windows", "1TB", "8GB",1);
 
-insert into empresa (razao_social, codigo_ativacao) values ('Empresa 1', 'ED145B');
-insert into empresa (razao_social, codigo_ativacao) values ('Empresa 2', 'A1B2C3');
-insert into aquario (descricao, fk_empresa) values ('Aquário de Estrela-do-mar', 1);
-insert into aquario (descricao, fk_empresa) values ('Aquário de Peixe-dourado', 2);
+SELECT * FROM dado;
+SELECT * FROM equipamento;
+
+SELECT d.cpu_percent, d.memoria, d.disco, d.dt_hora,e.nome_equipamento FROM dado AS d JOIN equipamento AS e ON fk_equipamento = id_equipamento;
