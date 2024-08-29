@@ -30,17 +30,17 @@ function cadastrar(req, res) {
   var email = req.body.email;
   var senha = req.body.senha
 
-  empresaModel.buscarPorCnpj(cnpj).then((resultado) => {
-    if (resultado.length > 0) {
-      res
-        .status(401)
-        .json({ mensagem: `a empresa com o cnpj ${cnpj} já existe` });
-    } else {
-      empresaModel.cadastrar(razaoSocial, cnpj,cep,telefone,email,senha).then((resultado) => {
-        res.status(201).json(resultado);
-      });
-    }
-  });
+  // empresaModel.buscarPorCnpj(cnpj).then((resultado) => {
+  //   if (resultado.length > 0) {
+  //     res
+  //       .status(401)
+  //       .json({ mensagem: `a empresa com o cnpj ${cnpj} já existe` });
+  //   } else {
+  //     empresaModel.cadastrar(razaoSocial, cnpj,cep,telefone,email,senha).then((resultado) => {
+  //       res.status(201).json(resultado);
+  //     });
+  //   }
+  // });
 }
 
 module.exports = {

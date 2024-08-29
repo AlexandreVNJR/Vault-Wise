@@ -89,26 +89,27 @@
       senhaServer: senha,
     }),
   })
-    .then(function (resposta) {
-      console.log("resposta: ", resposta);
+  .then(function (resposta) {
+  console.log("resposta: ", resposta);
 
-      if (resposta.ok) {
-        cardErro.style.display = "block";
-        mensagem_erro.innerHTML =
-          "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+  if (resposta.ok) {
+    cardErro.style.display = "block";
+    mensagem_erro.innerHTML =
+      "Cadastro realizado com sucesso! Redirecionando para a tela de Login...";
 
-        setTimeout(() => {
-          window.location = "login.html";
-        }, "2000");
+    setTimeout(() => {
+      window.location = "login.html";
+    }, 2000); // O tempo de espera em setTimeout deve ser um número, não uma string.
 
-        limparFormulario();
-      } else {
-        throw "Houve um erro ao tentar realizar o cadastro!";
-      }
-    })
-    .catch(function (resposta) {
-      console.log(`#ERRO: ${resposta}`);
-    });
+    limparFormulario();
+  } else {
+    throw new Error("Houve um erro ao tentar realizar o cadastro!");
+  }
+})
+.catch(function (erro) {
+  console.log(`#ERRO: ${erro}`);
+});
+
 
   return false;
 }
