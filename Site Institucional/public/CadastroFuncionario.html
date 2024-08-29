@@ -4,20 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vault Wise - Crie sua conta</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/styleCadastroFuncionario.css">
 </head>
 <body>
-    <header>
-        <div class="logo">VAULT WISE</div>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Sobre</a></li>
-                <li><a href="#">Valores</a></li>
-                <li class="btn_login"><a href="#">Login</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header>
+    <div class="logo"><img src="css/imagens/logosemfundo.png" alt=""></div>
+    <div class="logo">VaultWise</div>
+    <nav>
+        <ul id="link_nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#sobre_nos">Sobre</a></li>
+            <li><a href="#">Cadastro</a></li>
+            <li class="btn_login"><a href="#">Login</a></li>
+        </ul>
+    </nav>
+    <button class="hamburguer" onclick="ativarMenu()">&#9776;</button>
+</header>
     <div class="container">
         <div class="form-container">
             <h1>Olá! Seja bem-vindo!</h1>
@@ -39,8 +41,7 @@
                 <input type="password" placeholder="Senha" class="input_senha">
                 <div class="buttons">
                     <button onclick="cadastrar()" type="submit" class="btn-primary">Criar Conta</button>
-                    <button type="button" class="btn-secondary">Mudar Cadastro</button>
-                   
+                    <button onclick="mudarCadastro()" href="CadastroEmpresa.html" type="button" class="btn-secondary">Mudar Cadastro</button>
                 </div>
             </form>
         </div>
@@ -52,7 +53,15 @@
 
     // Array para armazenar empresas cadastradas para validação de código de ativação 
     // let listaEmpresasCadastradas = [];
-  
+      function ativarMenu() {
+        var linknav = document.getElementById("link_nav")
+        linknav.classList.toggle("ativo")
+      }
+
+      function mudarCadastro() {
+        window.location.href="CadastroEmpresa.html"
+      }
+
       function cadastrar() {
         // aguardar();
     

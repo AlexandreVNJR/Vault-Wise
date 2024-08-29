@@ -7,6 +7,7 @@
   text-decoration: none;
   list-style: none;
 }
+
  body {
         background: #000000;
         display: flex;
@@ -638,7 +639,7 @@ nav ul li a.ativo {
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
   }
 
   nav ul li {
@@ -662,5 +663,21 @@ nav ul li a.ativo {
 
   .texto1 {
     text-align: center;
+  }
+
+  .espaco_card {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    align-items: start;
+  }
+
+  .card_um{
+    width: 50%;
+  }
+  .card_um sec{
+    width: 50%;
+  }
+  .card_um th{
+    width: 50%;
   }
 }

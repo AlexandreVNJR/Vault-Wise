@@ -8,7 +8,7 @@
 /* Corpo do site , onde se definiu a fonte , a imagem de fundo e a cor do fundo */
 body {
     font-family: Arial, sans-serif;
-    background: url('ImagemFundo.png') no-repeat center center/cover;
+    background: url('imagens/ImagemFundo.png') no-repeat center center/cover;
     color: #982727;
 }
 
@@ -25,13 +25,17 @@ header {
     margin-left: 160px;
     margin-top: 10px;
     z-index: 1;
-    cursor: pointer;
 }
 
 /* Logo presente no cabeçalho */
 .logo {
     font-size: 24px;
     font-weight: bold;
+    color: #ffffff;
+}
+
+.logo img{
+    width: 42%;
 }
 
 /* Elementos presentes no cabeçalho */
@@ -125,29 +129,29 @@ p a {
     align-items: baseline;
 }
 
-.input_nomefantasia {
+.input_nome {
     background-color: #545454;
 }
 
-.input_razaosocial {
+.input_cpf {
     margin-left: 10px;
-    background-color: #545454;
-}
-
-.input_cnpj {
-    background-color: #545454;
-}
-
-.input_cep {
-    margin-left: 10px;
-    background-color: #545454;
-}
-
-.input_telefone{
     background-color: #545454;
 }
 
 .input_email {
+    background-color: #545454;
+}
+
+.input_tel {
+    margin-left: 10px;
+    background-color: #545454;
+}
+
+.input_empresa{
+    background-color: #545454;
+}
+
+.input_cargo {
     margin-left: 10px;
     background-color: #545454;
 }
@@ -231,3 +235,104 @@ footer p {
     margin: 0;
 }
 
+.hamburguer {
+    display: none; 
+    font-size: 1.8rem;
+    color: white;
+    background: none;
+    border: none;
+    position: absolute;
+    top: 20px; 
+    right: 20px;
+    z-index: 2;
+    cursor: pointer;
+}
+
+
+@media (max-width: 430px) {
+    html {
+        height: 100%;
+        background-color: #5B0C0C;
+    }
+    
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+
+    header {
+        margin: 10px 0;
+        padding: 0 25px;
+        width: 90%;
+        justify-content: center;
+        align-self: center;
+        position: relative;
+    }
+
+    .logo {
+        width: 25%;
+        color: #ffffff;
+    }
+
+    .logo img {
+        width: 100%;
+    }
+
+    nav {
+        width: 75%;
+        justify-self: flex-end;
+    }
+
+    nav ul {
+        gap: 5px;
+        display: none; 
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        right: 0;
+        background-color: #5b0c0c;
+        border-radius: 5px;
+        width: 75%;
+        box-shadow: black 4px 4px 10px;
+        border: 1px solid black;
+    }
+
+    nav ul li {
+        margin: 15px 0;
+        text-align: center;
+    }
+
+    nav ul li:hover {
+        background-color: #410808;
+    }
+
+    nav ul li a {
+        font-size: 0.9rem;
+    }
+
+    .hamburguer {
+        display: block;
+    }
+
+    nav ul.ativo {
+        display: block;
+    }
+
+    .form-container {
+        width: 80%;
+    }
+
+    .btn-primary {
+        border-radius: 20px;
+    }
+
+    .btn-secondary {
+        border-radius: 20px;
+    }
+
+    .btn_login {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
