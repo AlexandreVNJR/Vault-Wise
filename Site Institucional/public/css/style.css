@@ -669,10 +669,6 @@ nav ul li a.ativo {
     align-items: center;
   }
 
-  .texto1 {
-    text-align: center;
-  }
-
   .espaco_card {
     overflow-x: scroll;
     overflow-y: hidden;

@@ -2,7 +2,6 @@ DROP DATABASE IF EXISTS vaultwise;
 CREATE DATABASE vaultwise;
 USE vaultwise;
 
-
 CREATE TABLE empresa(
 id_empresa INT PRIMARY KEY AUTO_INCREMENT,
 cnpj CHAR(14) UNIQUE,
@@ -28,6 +27,8 @@ fk_empresa INT,
     PRIMARY KEY (id_usuario,fk_empresa)
 );
 
+
+
 CREATE TABLE equipamento(
 id_equipamento INT AUTO_INCREMENT,
 nome_equipamento VARCHAR(45),
@@ -42,9 +43,12 @@ fk_empresa INT,
 
 CREATE TABLE dado(
 id_dado INT AUTO_INCREMENT,
+cpu_freq VARCHAR(45),
 cpu_percent VARCHAR(45),
-memoria VARCHAR(45),
-disco VARCHAR(45),
+memoria_usada VARCHAR(45),
+memoria_percent VARCHAR(45),
+disco_usada VARCHAR(45),
+disco_percent VARCHAR(45),
 estado VARCHAR(45),
 dt_hora DATETIME DEFAULT CURRENT_TIMESTAMP,
 fk_equipamento INT,
@@ -64,4 +68,4 @@ INSERT INTO equipamento VALUES
 SELECT * FROM dado;
 SELECT * FROM equipamento;
 
-SELECT d.cpu_percent, d.memoria, d.disco, d.dt_hora,e.nome_equipamento FROM dado AS d JOIN equipamento AS e ON fk_equipamento = id_equipamento;
+SELECT d.cpu_percent, d.memoria_percent, d.disco_percent, d.dt_hora,e.nome_equipamento FROM dado AS d JOIN equipamento AS e ON fk_equipamento = id_equipamento;
