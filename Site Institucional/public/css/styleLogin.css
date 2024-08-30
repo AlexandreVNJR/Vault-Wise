@@ -8,7 +8,7 @@
 /* Corpo do site , onde se definiu a fonte , a imagem de fundo e a cor do fundo */
 body {
     font-family: Arial, sans-serif;
-    background: url('ImagemFundo.png') no-repeat center center/cover;
+    background: url('imagens/ImagemFundo.png');
     color: #982727;
 }
 
@@ -232,3 +232,11 @@ footer p {
     margin: 0;
 }
 
+.loading-div {
+    display: none; /* Oculta a barra inicialmente */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000; /* Para garantir que fique acima de outros elementos */
+}
