@@ -294,7 +294,6 @@ footer p {
         border-radius: 5px;
         width: 75%;
         box-shadow: black 4px 4px 10px;
-        border: 1px solid black;
     }
 
     nav ul li {
@@ -316,6 +315,10 @@ footer p {
 
     nav ul.ativo {
         display: block;
+    }
+
+    .container {
+        padding-left: 30px;
     }
 
     .form-container {

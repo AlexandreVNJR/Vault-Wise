@@ -4,10 +4,6 @@ from socket import gethostname
 import platform
 import mysql.connector
 
-nomeMaquina = gethostname()
-sistemaOperacional = platform.system()
-intervalo = 2 #setando o intervalo da captura
-
 #Conexão com o banco
 mydb = mysql.connector.connect(
     #user='VaultWise', 
@@ -19,12 +15,19 @@ mydb = mysql.connector.connect(
     database='vaultwise',
     port='3306'
 )
+
+nomeMaquina = gethostname()
+sistemaOperacional = platform.system()
+intervalo = 2 #setando o intervalo da captura
+
 cursor = mydb.cursor()
 
 while True:
     #Variáveis de captura dos dados
     porcent_cpu = psutil.cpu_percent()
     memoria = psutil.virtual_memory()
+    freq_cpu = psutil.cpu_freq().current
+
     if(sistemaOperacional == "Windows"):
         disco = psutil.disk_usage('C:\\')
     else:
@@ -38,15 +41,18 @@ while True:
           
     CPU:      
     Porcentagem de uso da CPU: {:.2f}%
+    Freq CPU: {:f}
     
     Memória (total = {:.2f} GB):
     Porcentagem de uso memória RAM: {:.1f}
+    Memoria Usada: {:f} GB
           
     Disco Rígido (total = {:.2f} GB): 
     Porcentagem de uso do disco: {:.1f}%
+    Disco usado: {:f} 
           
     Pressione Ctrl+C para encerrar a captura
-    """.format(intervalo, porcent_cpu,  memoria.total/pow(10, 9), memoria.percent, disco.total/pow(10, 9), disco.percent))
+    """.format(intervalo, porcent_cpu, freq_cpu,  memoria.total/pow(10, 9), memoria.used, memoria.percent, disco.total/pow(10, 9), disco.percent, disco.used))
 
     #Tempo de captura de dados
     time.sleep(intervalo)
@@ -76,12 +82,12 @@ while True:
 
     #Função para enviar os dados capturados com a informação de que estão em alerta
     if porcent_cpu > 80 or memoria.percent > 80:  
-        instrucao = "INSERT INTO dado VALUES (default, %s, %s, %s, 'Alerta',default, %s, 1);"
-        values = (porcent_cpu, memoria.percent, disco.percent, idEquipamento)
+        instrucao = "INSERT INTO dado VALUES (default, %s, %s, %s, %s, %s, %s, 'Alerta', default, %s, 1);"
+        values = (freq_cpu, porcent_cpu,memoria.used, memoria.percent, disco.used, disco.percent, idEquipamento)
         cursor.execute(instrucao, values)
     else:
-        instrucao = "INSERT INTO dado VALUES (default, %s, %s, %s, 'Seguro',default, %s, 1);"
-        values = (porcent_cpu, memoria.percent, disco.percent, idEquipamento)
+        instrucao = "INSERT INTO dado VALUES (default, %s, %s, %s, %s, %s, %s, 'Seguro', default, %s, 1);"
+        values = (freq_cpu, porcent_cpu,memoria.used, memoria.percent, disco.used, disco.percent, idEquipamento)
         cursor.execute(instrucao, values)
 
     mydb.commit()
