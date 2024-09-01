@@ -735,7 +735,6 @@ nav ul li a.ativo {
     overflow-y: scroll;
     display: grid;
     flex-direction: column;
-    margin-top: 50px;
     height: 75%;
     width: 85%;
   }

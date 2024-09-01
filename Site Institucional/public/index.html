@@ -258,28 +258,7 @@
 </html>
 
 <script>
-  
-  function card_ant() {
-    index--;
-    if (index < 1) {
-      index = 3;
-    }
-    atualizar_card()
-  }
-  
-  function card_prox() {
-    index++;
-    if (index > 3) {
-      index = 1;
-    }
-    atualizar_card()
-  }
-  
-  var index = 1;
-  var lista_card = [(document.getElementById(1)), (document.getElementById(2)), (document.getElementById(3))]
 
-  atualizar_card()
-  
   function atualizar_card() {
     for (var i = 0; i < lista_card.length; i++){ 
       if (index == lista_card[i].id) {
@@ -287,20 +266,44 @@
         lista_card[i].classList.remove('saida'); 
         
         (function(i) {
-        setTimeout(() => {
-          lista_card[i].style.display = 'block';
-        }, 200);
+          setTimeout(() => {
+            lista_card[i].style.display = 'block';
+        }, 50);
       })(i);
       } else {
         lista_card[i].classList.add('saida'); 
         lista_card[i].classList.remove('entrada'); 
-
+        
         (function(i) {
-        setTimeout(() => {
-          lista_card[i].style.display = 'none';
-        }, 200);
-      })(i);
+          setTimeout(() => {
+            lista_card[i].style.display = 'none';
+          }, 50);
+        })(i);
       }
     }
   }
+  
+  function card_ant() {
+    index--;
+    if (index < 1) {
+      index = 3;
+    }
+    atualizar_card()
+}
+
+function card_prox() {
+  index++;
+  if (index > 3) {
+    index = 1;
+  }
+  atualizar_card()
+}
+
+var index = 1;
+var lista_card = [(document.getElementById(1)), (document.getElementById(2)), (document.getElementById(3))]
+
+  if (window.matchMedia('(max-width: 430px)').matches) {
+  atualizar_card()
+  
+}
 </script>
