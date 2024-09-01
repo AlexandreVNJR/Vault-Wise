@@ -217,6 +217,45 @@ input::placeholder {
     opacity: 0.8;
 }
 
+/*Estilização Input da tela Equipamento*/
+.input_equip {
+    background-color: #545454;
+}
+
+/*Estilização Select da tela Equipamento*/
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 10px;
+    background-color: #545454;
+    color: #969696;
+    font-size: 16px;
+    height: 50px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 15px;
+}
+
+select option {
+    background-color: #5B0C0C;
+    color: #ffffff;
+}
+
+select:focus {
+    outline: none;
+    border: 2px solid #982727;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
 /* Estilos do corpo, header e outros elementos omitidos */
 
 /* Footer */
@@ -294,6 +333,7 @@ footer p {
         border-radius: 5px;
         width: 75%;
         box-shadow: black 4px 4px 10px;
+        border: 1px solid black;
     }
 
     nav ul li {
@@ -315,10 +355,6 @@ footer p {
 
     nav ul.ativo {
         display: block;
-    }
-
-    .container {
-        padding-left: 30px;
     }
 
     .form-container {

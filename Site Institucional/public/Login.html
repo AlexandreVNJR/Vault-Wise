@@ -4,18 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vault Wise - Faça seu login</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/styleLogin.css">
 </head>
 <body>
     <header>
-        <div class="logo">VAULT WISE</div>
+        <div class="logo"><img src="css/imagens/logosemfundo.png" alt=""></div>
+        <div class="logo">VaultWise</div>
         <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Sobre</a></li>
-                <li><a href="#">Valores</a></li>
+            <ul id="link_nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#sobre_nos">Sobre</a></li>
+                <li><a href="CadastroEmpresa.html">Cadastro</a></li>
             </ul>
         </nav>
+        <button class="hamburguer" onclick="ativarMenu()">&#9776;</button>
     </header>
     <div class="container">
         <div class="form-container">
@@ -33,3 +35,12 @@
     </div>
 </body>
 </html>
+
+<script>
+
+function ativarMenu() {
+      var linknav = document.getElementById("link_nav")
+      linknav.classList.toggle("ativo")
+    }
+
+</script>
