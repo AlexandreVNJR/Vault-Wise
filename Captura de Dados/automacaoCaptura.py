@@ -23,6 +23,7 @@ cursor = mydb.cursor()
 
 while True:
     #Variáveis de captura dos dados
+    
     porcent_cpu = psutil.cpu_percent()
     memoria = psutil.virtual_memory()
     if(sistemaOperacional == "Windows"):
