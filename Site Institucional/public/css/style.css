@@ -721,26 +721,53 @@ nav ul li a.ativo {
   .container_sobre_nos {
     display: flex;
     flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
   }
 
   .texto_sobre_nos2 {
-    height: fit-content;
+    display: grid;
+    margin-top: 120px;
+    width: 75%;
+    justify-self: center;
   }
 
   .texto_sobre_nos2 img {
-    width: 75%;
+    width: 100%;
   }
 
   .titulo_sobre_nos {
-    overflow-y: scroll;
-    display: grid;
+    overflow-y: visible;
     flex-direction: column;
-    height: 75%;
+    margin-top: 200px;
+    height: 50%;
     width: 85%;
   }
 
   .titulo_sobre_nos h1{
     align-self: center;
     justify-self: center;
+  }
+
+  .titulo_equipe {
+    margin: 0;
+  }
+
+  .containercard {
+    
+  }
+
+  .quatro {
+    height: fit-content;
+  }
+
+  .fundovalores {
+    height: fit-content;
+  }
+
+  .box-container {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;  
   }
 }
