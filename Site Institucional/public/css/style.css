@@ -551,8 +551,6 @@ nav ul li a.ativo {
   transform: scale(1.03);
 }
 
-
-
 @media (max-width:768px){
   .containerval{
       padding:20px;
@@ -599,7 +597,12 @@ nav ul li a.ativo {
 .carrossel {
   color: #ffffff;
   background-color: transparent;
-  font-size: 23px;
+  height: fit-content;
+  align-self: center;
+  font-size: 2.5rem;
+  cursor: pointer;
+  border: 0;
+  display: none;
 }
 
 @media (max-width: 430px) {
@@ -673,22 +676,71 @@ nav ul li a.ativo {
     overflow-x: scroll;
     overflow-y: hidden;
     justify-content: last baseline;
+    animation: fade 3s normal;
   }
 
+  .carrossel {
+    display: block;
+  } 
+
   .card_um{
-    animation: fade 3s infinite;
     width: fit-content;
+    align-self: center;
+    transition: ease-in;
+  }
+
+  .sec {
+    display: none;
+  }
+
+  .th {
+    display: none;
+  }
+
+  .um button {
+    margin: 2px;
   }
 
   @keyframes fade {
     0% {
       opacity: 0;
     }
-    50% {
+    100% {
       opacity: 1;
     }
-    100% {
-      opacity: 0;
-    }
+  }
+
+  .entrada {
+    animation: fade 0.5s forwards;
+  }
+
+  .saida {
+    animation: fade 0.5s backwards;
+  }
+
+  .container_sobre_nos {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .texto_sobre_nos2 {
+    height: fit-content;
+  }
+
+  .texto_sobre_nos2 img {
+    width: 75%;
+  }
+
+  .titulo_sobre_nos {
+    overflow-y: scroll;
+    display: grid;
+    flex-direction: column;
+    height: 75%;
+    width: 85%;
+  }
+
+  .titulo_sobre_nos h1{
+    align-self: center;
+    justify-self: center;
   }
 }
