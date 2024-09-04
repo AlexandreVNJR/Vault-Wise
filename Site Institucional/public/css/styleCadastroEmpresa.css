@@ -14,7 +14,7 @@ body {
 
 /* Cabeçalho do site  */
 header {
-    background: #5b0c0c;
+    background: #0f1923;
     width: 80%;
     height: 80px;
     display: flex;
@@ -63,7 +63,7 @@ a:hover {
 
 .btn_login {
     background-color: none;
-    border: 3px solid #F7B6B9;
+    border: 3px solid #5983ac;
     border-radius: 10px;
     padding: 10px;
 }
@@ -182,7 +182,7 @@ input::placeholder {
 }
 
 .btn-primary {
-    background-color: #982727;
+    background-color: #5983ac;
     color: #ffffff;
     border: none;
     padding: 15px 20px;
@@ -196,7 +196,7 @@ input::placeholder {
 }
 
 .btn-secondary {
-    background-color: #5B0C0C;
+    background-color: #20354a;
     color: #ffffff;
     border: none;
     padding: 15px 20px;
