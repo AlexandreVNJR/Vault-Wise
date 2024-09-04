@@ -376,8 +376,8 @@ nav ul li a.ativo {
   display: flex;
   justify-content: center;
   place-items: center;
-  margin-inline: 1.5rem;
   padding-block: 2rem;
+  margin: 0 0.3rem;
 }
 
 .alinhamentocardequipe{
