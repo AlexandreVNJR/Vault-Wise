@@ -14,7 +14,7 @@ body {
 
 /* Cabeçalho do site  */
 header {
-    background: #071e26;
+    background: #0f1923;
     width: 80%;
     height: 80px;
     display: flex;
@@ -31,6 +31,15 @@ header {
 .logo {
     font-size: 24px;
     font-weight: bold;
+    color: #ffffff;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo img {
+    height: 100%;
 }
 
 /* Elementos presentes no cabeçalho */
@@ -54,13 +63,6 @@ nav ul li a {
 
 a:hover {
     color: #071e2655;
-}
-
-.btn_login {
-    background-color: none;
-    border: 3px solid #F7B6B9;
-    border-radius: 10px;
-    padding: 10px;
 }
 
 /* Onde ficam os elementos para cadastro */
@@ -179,16 +181,16 @@ input::placeholder {
 }
 
 .btn-primary {
-    background-color: #071e26;
+    background-color: #20354a;
     color: #ffffff;
     border: none;
-    padding: 15px 20px;
+    padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
     font-size: 22px;
     font-weight: bold;
     height: 80px;
-    width: 45%;
+    width: 35%;
     margin-top: 18px; 
     border-radius: 40px;
 }

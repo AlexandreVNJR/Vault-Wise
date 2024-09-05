@@ -14,7 +14,11 @@ body {
 
 /* Cabeçalho do site  */
 header {
+<<<<<<< HEAD
     background: #071e26;
+=======
+    background: #0f1923;
+>>>>>>> d3e534078b2b1d46047326c2c43f955085c5cfe4
     width: 80%;
     height: 80px;
     display: flex;
@@ -63,7 +67,7 @@ a:hover {
 
 .btn_login {
     background-color: none;
-    border: 3px solid #F7B6B9;
+    border: 3px solid #5983ac;
     border-radius: 10px;
     padding: 10px;
 }
@@ -191,7 +195,11 @@ input::placeholder {
 }
 
 .btn-primary {
+<<<<<<< HEAD
     background-color: #071e26;
+=======
+    background-color: #5983ac;
+>>>>>>> d3e534078b2b1d46047326c2c43f955085c5cfe4
     color: #ffffff;
     border: none;
     padding: 15px 20px;
@@ -205,7 +213,11 @@ input::placeholder {
 }
 
 .btn-secondary {
+<<<<<<< HEAD
     background-color: #05151b;
+=======
+    background-color: #20354a;
+>>>>>>> d3e534078b2b1d46047326c2c43f955085c5cfe4
     color: #ffffff;
     border: none;
     padding: 15px 20px;

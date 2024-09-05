@@ -25,7 +25,8 @@ var database = require("../database/config");
 }
 
 
-module.exports = {cadastrar,listar
-
+module.exports = {
+  cadastrar,
+  listar,
 };
-// buscarPorCnpj, buscarPorId, listar 
+// buscarPorCnpj, buscarPorId 

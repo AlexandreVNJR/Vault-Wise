@@ -14,7 +14,7 @@ body {
 
 /* Cabeçalho do site  */
 header {
-    background: #071e26;
+    background: #0f1923;
     width: 80%;
     height: 80px;
     display: flex;
@@ -63,7 +63,7 @@ a:hover {
 
 .btn_login {
     background-color: none;
-    border: 3px solid #F7B6B9;
+    border: 3px solid #5983ac;
     border-radius: 10px;
     padding: 10px;
 }
