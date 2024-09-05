@@ -3,28 +3,26 @@ CREATE DATABASE vaultwise;
 USE vaultwise;
 
 CREATE TABLE empresa(
-id_empresa INT PRIMARY KEY AUTO_INCREMENT,
-cnpj CHAR(14) UNIQUE,
+cnpj CHAR(14) PRIMARY KEY ,
 cep CHAR(8),
 razao_social VARCHAR(45),
 telefone CHAR(9) UNIQUE,
 email VARCHAR(45) UNIQUE,
-numero VARCHAR(45),
-complemento VARCHAR(45)
+senha VARCHAR(45)
 );
+select * from empresa;
 
 CREATE TABLE usuario(
-id_usuario INT AUTO_INCREMENT,
-cpf CHAR(11) UNIQUE,
+cpf CHAR(11),
 nome VARCHAR(45),
 email VARCHAR(45) UNIQUE,
 telefone CHAR(9) UNIQUE,
 cargo VARCHAR(45),
 senha VARCHAR(45),
-fk_empresa INT,
+fk_cnpj char(14),
 
-    FOREIGN KEY (fk_empresa) REFERENCES empresa (id_empresa),
-    PRIMARY KEY (id_usuario,fk_empresa)
+    FOREIGN KEY (fk_cnpj) REFERENCES empresa (cnpj),
+    PRIMARY KEY (cpf,fk_cnpj)	
 );
 
 
@@ -35,9 +33,9 @@ nome_equipamento VARCHAR(45),
 sistema_operacional VARCHAR(45),
 total_disco VARCHAR(45),
 total_memoria VARCHAR(45),
-fk_empresa INT,
+fk_cnpj char(14),
 
-    FOREIGN KEY (fk_empresa) REFERENCES empresa (id_empresa),
+    FOREIGN KEY (fk_cnpj) REFERENCES empresa (cnpj),
     PRIMARY KEY (id_equipamento)
 );
 
@@ -52,11 +50,11 @@ disco_percent VARCHAR(45),
 estado VARCHAR(45),
 dt_hora DATETIME DEFAULT CURRENT_TIMESTAMP,
 fk_equipamento INT,
-fk_empresa INT,
+fk_cnpj char(14),
 
     FOREIGN KEY (fk_equipamento) REFERENCES equipamento (id_equipamento),
-    FOREIGN KEY (fk_empresa) REFERENCES empresa (id_empresa),
-    PRIMARY KEY (id_dado, fk_equipamento, fk_empresa)
+    FOREIGN KEY (fk_cnpj) REFERENCES empresa (cnpj),
+    PRIMARY KEY (id_dado, fk_equipamento, fk_cnpj)
 );
 
 INSERT INTO empresa VALUES
@@ -68,4 +66,4 @@ INSERT INTO equipamento VALUES
 SELECT * FROM dado;
 SELECT * FROM equipamento;
 
-SELECT d.cpu_percent, d.memoria_percent, d.disco_percent, d.dt_hora,e.nome_equipamento FROM dado AS d JOIN equipamento AS e ON fk_equipamento = id_equipamento;
+SELECT d.cpu_percent, d.memoria_percent, d.disco_percent, d.dt_hora,e.nome_equipamento FROM dado AS d JOIN equipamento AS e ON fk_equipamento = id_equipamento;	
