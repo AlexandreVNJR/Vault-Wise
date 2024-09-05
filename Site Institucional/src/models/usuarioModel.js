@@ -9,27 +9,30 @@ var database = require("../database/config")
 //     console.log("Executando a instrução SQL: \n" + instrucaoSql);
 //     return database.executar(instrucaoSql);
 //  }
-function buscarPorCpf(cpf) {
-       var instrucaoSql = `SELECT * FROM usuario WHERE cpf = '${cpf}'`;
-    
-       return database.executar(instrucaoSql);
-     }
+function buscarPorCnpj(cnpj) {
+    var instrucaoSql = `SELECT cnpj FROM empresa WHERE cnpj = '${cnpj}'`;
+    return database.executar(instrucaoSql);
+}
+
     
 // Coloque os mesmos parâmetros aqui. Vá para a var instrucaoSql
-function cadastrar(nome, cpf, email, telefone, senha, cargo,fk_empresa) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, cpf, email, telefone, senha, cargo, fk_empresa);
+function cadastrar(nome, cpf, email, telefone, senha, cargo, cnpj) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, cpf, email, telefone, senha, cargo,cnpj);
     
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucaoSql = `
-        INSERT INTO usuario (nome, cpf, email, telefone, senha, cargo,fk_empresa) VALUES ('${nome}', '${cpf}', '${email}', '${telefone}', '${senha}', '${cargo}',1);
+        INSERT INTO usuario (nome, cpf, email, telefone, senha, cargo,fk_cnpj) VALUES ('${nome}', '${cpf}', '${email}', '${telefone}', '${senha}', '${cargo}','${cnpj}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
+
+
+
 module.exports = {
    
-    cadastrar,buscarPorCpf
+    cadastrar,buscarPorCnpj
 };
 // autenticar,

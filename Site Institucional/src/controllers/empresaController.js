@@ -8,11 +8,11 @@ var empresaModel = require("../models/empresaModel");
 //    });
 //  }
 
-//  function listar(req, res) {
-//    empresaModel.listar().then((resultado) => {
-//      res.status(200).json(resultado);
-//    });
-//  }
+ function listar(req, res) {
+   empresaModel.listar().then((resultado) => {
+     res.status(200).json(resultado);
+   });
+ }
 
 //  function buscarPorId(req, res) {
 //    var id = req.params.id_empresa;
@@ -44,7 +44,7 @@ function cadastrar(req, res) {
 // }
 
 module.exports = {
-  cadastrar,
+  cadastrar
+  ,listar
 };
-// ,listar
 // buscarPorCnpj,buscarPorId

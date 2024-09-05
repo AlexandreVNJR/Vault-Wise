@@ -14,7 +14,7 @@ body {
 
 /* Cabeçalho do site  */
 header {
-    background: #5b0c0c;
+    background: #071e26;
     width: 80%;
     height: 80px;
     display: flex;
@@ -53,7 +53,7 @@ nav ul li a {
 }
 
 a:hover {
-    color: #982727;
+    color: #071e2655;
 }
 
 .btn_login {
@@ -179,7 +179,7 @@ input::placeholder {
 }
 
 .btn-primary {
-    background-color: #982727;
+    background-color: #071e26;
     color: #ffffff;
     border: none;
     padding: 15px 20px;
@@ -194,7 +194,7 @@ input::placeholder {
 }
 
 .btn-secondary {
-    background-color: #5B0C0C;
+    background-color: #020a0c;
     color: #ffffff;
     border: none;
     padding: 15px 20px;
@@ -217,7 +217,7 @@ input::placeholder {
 
 /* Footer */
 footer {
-    background-color: #7c0a0a; /* Cor do fundo do footer, baseada na paleta de cores da imagem */
+    background-color: #071e26; /* Cor do fundo do footer, baseada na paleta de cores da imagem */
     padding: 20px;
     text-align: center;
     color: #F2EDE9; /* Cor do texto do footer */

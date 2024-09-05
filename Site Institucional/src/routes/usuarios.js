@@ -9,7 +9,7 @@ router.post("/cadastrar", function (req, res) {
 })
 
 router.get("/buscar", function (req, res) {
-    usuarioController.buscarPorCpf(req, res);
+    usuarioController.buscarPorCnpj(req, res);
 });
 
 
