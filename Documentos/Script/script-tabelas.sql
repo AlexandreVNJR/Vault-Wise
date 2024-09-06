@@ -1,9 +1,10 @@
-DROP DATABASE IF EXISTS vaultwise;
+-- DROP DATABASE IF EXISTS vaultwise;
 CREATE DATABASE vaultwise;
 USE vaultwise;
 
 CREATE TABLE empresa(
-cnpj CHAR(14) PRIMARY KEY ,
+id_empresa INT PRIMARY KEY AUTO_INCREMENT,
+cnpj CHAR(14) UNIQUE,
 cep CHAR(8),
 razao_social VARCHAR(45),
 telefone CHAR(9) UNIQUE,
@@ -13,16 +14,17 @@ senha VARCHAR(45)
 select * from empresa;
 
 CREATE TABLE usuario(
-cpf CHAR(11),
+id_usuario INT AUTO_INCREMENT,
+cpf CHAR(11) UNIQUE,
 nome VARCHAR(45),
 email VARCHAR(45) UNIQUE,
 telefone CHAR(9) UNIQUE,
 cargo VARCHAR(45),
 senha VARCHAR(45),
-fk_cnpj char(14),
+fk_empresa char(14),
 
-    FOREIGN KEY (fk_cnpj) REFERENCES empresa (cnpj),
-    PRIMARY KEY (cpf,fk_cnpj)	
+    FOREIGN KEY (fk_empresa) REFERENCES empresa (id_empresa),
+    PRIMARY KEY (id_usuario,fk_empresa)	
 );
 
 
@@ -33,9 +35,9 @@ nome_equipamento VARCHAR(45),
 sistema_operacional VARCHAR(45),
 total_disco VARCHAR(45),
 total_memoria VARCHAR(45),
-fk_cnpj char(14),
+fk_empresa char(14),
 
-    FOREIGN KEY (fk_cnpj) REFERENCES empresa (cnpj),
+    FOREIGN KEY (fk_empresa) REFERENCES empresa (id_empresa),
     PRIMARY KEY (id_equipamento)
 );
 
@@ -50,11 +52,11 @@ disco_percent VARCHAR(45),
 estado VARCHAR(45),
 dt_hora DATETIME DEFAULT CURRENT_TIMESTAMP,
 fk_equipamento INT,
-fk_cnpj char(14),
+fk_empresa char(14),
 
     FOREIGN KEY (fk_equipamento) REFERENCES equipamento (id_equipamento),
-    FOREIGN KEY (fk_cnpj) REFERENCES empresa (cnpj),
-    PRIMARY KEY (id_dado, fk_equipamento, fk_cnpj)
+    FOREIGN KEY (fk_empresa) REFERENCES empresa (id_empresa),
+    PRIMARY KEY (id_dado, fk_equipamento, fk_empresa)
 );
 
 INSERT INTO empresa VALUES
