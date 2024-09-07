@@ -62,7 +62,7 @@ nav ul li a {
 }
 
 a:hover {
-    color: #071e2655;
+    color: #20354a;
 }
 
 /* Onde ficam os elementos para cadastro */
@@ -79,21 +79,22 @@ a:hover {
 
 .form-container {
     background-color: rgba(0, 0, 0, 0); /* Fundo transparente para o formulário */
-    padding: 20px;
+    padding: 40px;
     padding-top: 80px;
     border-radius: 20px;
-    width: 40%;
-    height: 80%;
+    width: 45%;
+    height: 90%;
+    margin-top: 100px;
 }
 
 h1 {
-    font-size: 20px;
+    font-size: 24px;
     margin-bottom: 5px;
     color: #ffffff;
 }
 
 h2 {
-    font-size: 32px;
+    font-size: 40px;
     font-weight: bold;
     margin-bottom: 5px;
     color: #ffffff; /* Cor do título */
@@ -102,6 +103,7 @@ h2 {
 p {
     margin-bottom: 20px;
     color: #ffffff;
+    font-size: 20px;
 }
 
 p a {
@@ -172,6 +174,7 @@ input {
 
 input::placeholder {
     color: #969696;
+    font-size: 20px;
 }
 
 .buttons {
@@ -190,7 +193,7 @@ input::placeholder {
     font-size: 22px;
     font-weight: bold;
     height: 80px;
-    width: 35%;
+    width: 25%;
     margin-top: 18px; 
     border-radius: 40px;
 }
@@ -308,7 +311,7 @@ footer p {
     }
 
     nav ul li:hover {
-        background-color: #410808;
+        background-color: #20354a;
     }
 
     nav ul li a {

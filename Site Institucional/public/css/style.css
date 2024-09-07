@@ -19,7 +19,7 @@
     overflow: hidden;
 }
 .fundo{
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     background-image: url("imagens/fundohome.png");
     position: relative;
@@ -371,7 +371,7 @@ footer {
 
 .tres{
     width: 100%;
-    height: 100vh;
+    height: auto;
     overflow: hidden;
     position: relative;
     z-index: 1000;
@@ -384,6 +384,7 @@ footer {
     position: relative;
     z-index: -1;
 }
+
 .containerequipe {
     width: 100%;
     height: 85%;
@@ -508,8 +509,8 @@ footer {
 
 .quatro{
   width: 100%;
-  height: 55VH;
   overflow: hidden;
+  position: relative;
 }
 
 .fundovalores{
@@ -724,9 +725,9 @@ footer {
 
   .carrossel {
     display: block;
-  } 
+  }
 
-  .card_um{
+  .card_um {
     width: fit-content;
     align-self: center;
     transition: ease-in;
@@ -761,29 +762,145 @@ footer {
     animation: fade 0.5s backwards;
   }
 
+  .fundo_sobre_nos {
+    width: 100%;
+    height: 100vh;
+    background-color: #ffffff;
+    position: relative;
+    z-index: -1;
+  }
+
   .container_sobre_nos {
     display: flex;
     flex-direction: column-reverse;
+    padding-top: 25px;
   }
 
   .texto_sobre_nos2 {
-    height: fit-content;
+    display: none;
   }
 
   .texto_sobre_nos2 img {
-    width: 75%;
+    display: none;
   }
 
   .titulo_sobre_nos {
     overflow-y: scroll;
     display: grid;
     flex-direction: column;
-    height: 75%;
+    height: 85%;
     width: 85%;
+    align-items: center;
+    justify-content: center;
   }
 
-  .titulo_sobre_nos h1{
+  .titulo_sobre_nos h1 {
     align-self: center;
     justify-self: center;
+  }
+
+  .containerequipe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .cards {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+  }
+
+  .cardcointainer2 {
+    width: 90%;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .cardarticle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .cardimagem {
+    width: 80%;
+    height: auto;
+    max-width: 150px; 
+    margin-bottom: 10px;
+  }
+
+  .carddados{
+    width: auto;
+    height: 80px;
+    padding: 10px;
+  }
+
+  .carddados span {
+    font-size: 14px;
+  }
+
+  .carddados h2 {
+    font-size: 14px;
+  }
+
+  .titulo_equipe, .texto_equipe {
+    text-align: center;
+    font-size: 1.4em; 
+    margin-bottom: 15px; 
+  }
+
+  .titulo_equipe h1 {
+    font-size: 1.5em;
+  }
+
+  .texto_equipe {
+    font-size: 1em;
+  }
+
+  .quatro {
+    height: auto; 
+  }
+
+  .fundovalores {
+    height: auto; 
+    padding-bottom: 30px; 
+  }
+
+  .containerval {
+    padding: 20px;
+  }
+
+  .titulo_valores {
+    font-size: 28px; 
+  }
+
+  .containerval .box-container {
+    display: flex;
+    flex-direction: column; 
+    gap: 15px; 
+  }
+
+  .containerval .box-container .box {
+    padding: 20px; 
+    text-align: center;
+  }
+
+  .containerval .box-container .box img {
+    height: 60px; 
+  }
+
+  .containerval .box-container .box h3 {
+    font-size: 18px; 
+  }
+
+  .containerval .box-container .box p {
+    font-size: 14px; 
   }
 }
