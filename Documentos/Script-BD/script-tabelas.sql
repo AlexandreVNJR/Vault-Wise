@@ -1,4 +1,4 @@
-DROP DATABASE IF EXISTS vaultwise;
+-- DROP DATABASE IF EXISTS vaultwise;
 CREATE DATABASE vaultwise;
 USE vaultwise;
 
@@ -11,6 +11,7 @@ telefone CHAR(9) UNIQUE,
 email VARCHAR(45) UNIQUE,
 senha VARCHAR(45)
 );
+select * from empresa;
 
 CREATE TABLE usuario(
 id_usuario INT AUTO_INCREMENT,
@@ -23,7 +24,7 @@ senha VARCHAR(45),
 fk_empresa INT,
 
     FOREIGN KEY (fk_empresa) REFERENCES empresa (id_empresa),
-    PRIMARY KEY (id_usuario,fk_empresa)
+    PRIMARY KEY (id_usuario,fk_empresa)	
 );
 
 
@@ -59,7 +60,7 @@ fk_empresa INT,
 );
 
 INSERT INTO empresa VALUES
-(default, 12345678910111, 99999999, "Empresa XPTO", 999999999, "xpto@gmail.com", "999", null);
+(default, 12345678910111, 99999999, "Empresa XPTO", 999999999, "xpto@gmail.com", "999");
 
 INSERT INTO equipamento VALUES
 (default, 'Teste', "Windows", "1TB", "8GB",1);
@@ -67,4 +68,4 @@ INSERT INTO equipamento VALUES
 SELECT * FROM dado;
 SELECT * FROM equipamento;
 
-SELECT d.cpu_percent, d.memoria_percent, d.disco_percent, d.dt_hora,e.nome_equipamento FROM dado AS d JOIN equipamento AS e ON fk_equipamento = id_equipamento;
+SELECT d.cpu_percent, d.memoria_percent, d.disco_percent, d.dt_hora,e.nome_equipamento FROM dado AS d JOIN equipamento AS e ON fk_equipamento = id_equipamento;	

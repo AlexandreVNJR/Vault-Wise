@@ -85,7 +85,7 @@ a:hover {
     padding: 20px;
     border-radius: 20px;
     width: 40%;
-    height: 80%;
+    height: 100%;
 }
 
 h1 {
@@ -155,9 +155,14 @@ p a {
     margin-left: 10px;
     background-color: #545454;
 }
+.input_cnpj {
+    background-color: #545454;
+}
 
 .input_senha {
     background-color: #545454;
+    /* margin-left: 10px; */
+
     
 }
 
@@ -183,7 +188,7 @@ input::placeholder {
 }
 
 .btn-primary {
-    background-color: #5983ac;
+    background-color: #071e26;
     color: #ffffff;
     border: none;
     padding: 15px 20px;
@@ -198,7 +203,7 @@ input::placeholder {
 }
 
 .btn-secondary {
-    background-color: #20354a;
+    background-color: #030f13;
     color: #ffffff;
     border: none;
     padding: 15px 20px;
@@ -221,7 +226,7 @@ input::placeholder {
 
 /* Footer */
 footer {
-    background-color: #7c0a0a; /* Cor do fundo do footer, baseada na paleta de cores da imagem */
+    background-color: rgb(37, 150, 190); /* Cor do fundo do footer, baseada na paleta de cores da imagem */
     padding: 20px;
     text-align: center;
     color: #F2EDE9; /* Cor do texto do footer */
@@ -252,7 +257,7 @@ footer p {
 @media (max-width: 430px) {
     html {
         height: 100%;
-        background-color: #5B0C0C;
+        background-color: #071e26;
     }
     
     body {
@@ -290,7 +295,7 @@ footer p {
         position: absolute;
         top: 80px;
         right: 0;
-        background-color: #5b0c0c;
+        background-color: #071e26;
         border-radius: 5px;
         width: 75%;
         box-shadow: black 4px 4px 10px;
@@ -302,7 +307,7 @@ footer p {
     }
 
     nav ul li:hover {
-        background-color: #410808;
+        background-color: #071e26;
     }
 
     nav ul li a {

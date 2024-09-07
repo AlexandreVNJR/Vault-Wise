@@ -122,7 +122,14 @@ p a {
     align-items: baseline;
 }
 
+
 .inputs3 {
+    display: flex;
+    justify-content: baseline;
+    align-items: baseline;
+}
+
+.inputs4 {
     display: flex;
     justify-content: baseline;
     align-items: baseline;
@@ -130,33 +137,35 @@ p a {
 
 .input_nomefantasia {
     background-color: #545454;
+    margin-left: 10px;
 }
 
 .input_razaosocial {
-    margin-left: 10px;
     background-color: #545454;
 }
 
 .input_cnpj {
     background-color: #545454;
+    margin-left: 10px;
 }
 
 .input_cep {
-    margin-left: 10px;
     background-color: #545454;
 }
 
 .input_telefone{
     background-color: #545454;
+    margin-left: 10px;
 }
 
 .input_email {
-    margin-left: 10px;
     background-color: #545454;
 }
 
 .input_senha {
     background-color: #545454;
+    margin-left: 10px;
+
     
 }
 
@@ -182,7 +191,7 @@ input::placeholder {
 }
 
 .btn-primary {
-    background-color: #5983ac;
+    background-color: #071e26;
     color: #ffffff;
     border: none;
     padding: 15px 20px;
@@ -196,7 +205,7 @@ input::placeholder {
 }
 
 .btn-secondary {
-    background-color: #20354a;
+    background-color: #05151b;
     color: #ffffff;
     border: none;
     padding: 15px 20px;

@@ -37,7 +37,10 @@
                     <input type="text" placeholder="Empresa" class="input_empresa" id="input_empresa">
                     <input type="text" placeholder="Cargo" class="input_cargo" id="input_cargo">
                 </div>
-                <input type="password" placeholder="Senha" class="input_senha" id="input_senha">
+                <div class="inputs4">
+                    <input type="text" placeholder="CNPJ" class="input_cnpjValidacao" id="input_cnpjValidacao">
+                    <input type="password" placeholder="Senha" class="input_senha" id="input_senha">
+                </div>
                 <div class="buttons">
                     <button onclick="cadastrar()" type="submit" class="btn-primary">Criar Conta</button>
                     <button onclick="mudarCadastro()" href="CadastroEmpresa.html" type="button" class="btn-secondary">Mudar Cadastro</button>
@@ -66,6 +69,8 @@ function ativarMenu() {
         var email = input_email.value;
         var telefone = input_telefone.value;
         var cargo = input_cargo.value;
+        var cnpjValidacao = input_cnpjValidacao.value;
+
         // var empresa = input_empresa.value;
         var senha = input_senha.value;
 
@@ -101,8 +106,7 @@ fetch("/usuarios/cadastrar", {
               telefoneServer: telefone,
               cargoServer: cargo,
               senhaServer: senha,
-              
-              // empresaServer: empresa,
+              cnpjValidacaoServer: cnpjValidacao
           }),
         })
         .then(function (resposta) {
