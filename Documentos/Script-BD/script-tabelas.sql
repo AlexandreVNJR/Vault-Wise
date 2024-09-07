@@ -9,8 +9,7 @@ cep CHAR(8),
 razao_social VARCHAR(45),
 telefone CHAR(9) UNIQUE,
 email VARCHAR(45) UNIQUE,
-numero VARCHAR(45),
-complemento VARCHAR(45)
+senha VARCHAR(45)
 );
 
 CREATE TABLE usuario(
