@@ -799,6 +799,10 @@ footer {
     justify-self: center;
   }
 
+  .fundoequipe {
+    height: 1800px; 
+  }
+
   .containerequipe {
     display: flex;
     flex-direction: column;
@@ -806,19 +810,10 @@ footer {
     padding: 20px;
   }
 
-  .cards {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 100%;
-  }
-
   .cardcointainer2 {
-    width: 90%;
-    margin: 10px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: auto;
+    padding: 10px;
+    margin: 5px; 
     text-align: center;
   }
 
@@ -829,9 +824,17 @@ footer {
     text-align: center;
   }
 
+  .containercard {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+    align-items: flex-start; 
+    width: 100%;
+  }
+
   .cardimagem {
-    width: 80%;
-    height: auto;
+    width: 150px;
+    height: 150px;
     max-width: 150px; 
     margin-bottom: 10px;
   }
