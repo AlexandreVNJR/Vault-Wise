@@ -6,9 +6,9 @@ import mysql.connector
 
 #Conexão com o banco
 mydb = mysql.connector.connect(
-    user='VaultWise', 
-    password='Senha123', 
-    host='10.18.32.222',
+    user='root', 
+    password='43589543Lu', 
+    host='localhost',
     #user = '',
     #password='',
     #host='localhost',
