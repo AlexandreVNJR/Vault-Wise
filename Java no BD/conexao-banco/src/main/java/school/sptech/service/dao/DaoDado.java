@@ -25,6 +25,7 @@ public class DaoDado {
         String sql = "SELECT disco_percent FROM dado WHERE fk_equipamento = ? ORDER BY dt_hora DESC LIMIT 1";
         return assistente.queryForObject(sql, Integer.class, verificarDisco);
     }
+
     public Integer consultarMediaUsoCpu (String verificarMediaCpu){
         String sql = "SELECT AVG(CAST(cpu_percent AS DECIMAL(5,2))) AS media_uso_cpu FROM dado WHERE fk_equipamento = ?";
         return assistente.queryForObject(sql, Integer.class, verificarMediaCpu);
